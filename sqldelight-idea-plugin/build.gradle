@@ -11,11 +11,9 @@ intellij {
   version = "IC-${versions.idea}"
   pluginName = 'SQLDelight'
   plugins = [
-      "org.jetbrains.kotlin:202-1.5.0-release-760-IJ8194.7",
-      "gradle",
+      "org.jetbrains.kotlin",
+      "com.intellij.gradle",
       "com.intellij.java",
-      "Groovy",
-      "properties",
   ]
   if (!project.version.endsWith("SNAPSHOT")) {
     patchPluginXml {
@@ -76,7 +74,6 @@ repositories {
 dependencies {
   implementation project(':sqldelight-compiler')
 
-  implementation deps.kotlin.reflect
   implementation deps.sqliteJdbc
   implementation(deps.bugsnag) {
     exclude group: "org.slf4j"
